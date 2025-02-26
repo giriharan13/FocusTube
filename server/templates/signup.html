@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FocusTube - Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <div id="logocontainer">
+        <img id="logo" src="{{ url_for('static',filename='logo.png') }}">
+      <h1 id="textlogo" > <a id="textlogo" href="/main/">FocusTube</a></h1>
+      </div>
+    <nav>
+        <ul>
+            <li><a href="/auth/login">Login</a></li> 
+        </ul>
+    </nav>
+</header>
+
+<section id="signup-section">
+    <h1>Sign Up</h1>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        
+        <label for="username">Username</label>
+        {{ form.username(id="username", placeholder="Enter your username") }}
+        
+        
+        <label for="password">Password</label>
+        {{ form.password(id="password", placeholder="Enter your password") }}
+        
+        <label for="confirm-password">Confirm Password</label>
+        {{ form.confirm_password(id="confirm-password", placeholder="Confirm your password") }}
+
+        <button type="submit" id="signup-button">Sign Up</button>
+    </form>
+
+    <p>Already have an account? <a href="/auth/login">Log in here</a></p>
+</section>
+<img src="https://i.ibb.co/yQCsjmh/chlogowhite2.png" id="mylogo">
+<div id="flashes">
+    {% for mesg in get_flashed_messages() %}
+      <h4>{{ mesg }}</h4>
+    {% endfor %}
+</div>
+</body>
+</html>

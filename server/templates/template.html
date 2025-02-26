@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="google-site-verification" content="sgUPRmKrZjcSa2g30mn65u1nPtw8mGN8KVsAVxj5sWs" />
+    <title>
+        FocusTube
+    </title>
+    <link rel="stylesheet" href = {{ url_for("static", filename="style.css") }} >
+</head>
+<body>
+    <header>
+        <div id="logocontainer">
+          <img id="logo" src="{{ url_for('static',filename='logo.png') }}">
+        <h1 id="textlogo" > <a id="textlogo" href="/main/">FocusTube</a></h1>
+        </div>
+        <ul id="headerbuttons">
+            <li><div id="dropdown"><button id="infobut">?</button><div id="info"><h6 style="color:green">patch:0.2.1 : Issue fixed!</h6></h6></div></div></li>
+            <li><a href="/main/home">Home</a></li>
+            <li><a href="/main/about">About</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        </ul>
+    </header>
+    <div id="content">
+{% block content %}{% endblock %}
+    </div>
+    <div id="flashes">
+        {% for mesg in get_flashed_messages() %}
+            <h4>{{ mesg }}</h4>
+        {% endfor %}
+    </div>
+    <img src="https://i.ibb.co/yQCsjmh/chlogowhite2.png" id="mylogo">
+</body>
+</html>

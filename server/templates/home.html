@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+{% block content %}
+<div id="search">
+    <form method="POST" action="">
+        <div id="searchform">
+            {{ form.hidden_tag() }}
+            {{ form.query(id="searchinput") }}
+            {{ form.submit(id="searchbut",value="Search") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}

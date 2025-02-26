@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusTube</title>
+    <link rel="stylesheet" href = {{ url_for("static", filename="style.css") }} >
+</head>
+<body>
+
+<header>
+    <div id="logocontainer">
+        <img id="logo" src="{{ url_for('static',filename='logo.png') }}">
+      <h1 id="textlogo" > <a id="textlogo" href="/main/">FocusTube</a></h1>
+      </div>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('auth.signup') }}">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    <section id="login-section">
+        <h1>Login</h1>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            <label for="username">Username:</label>
+            {{ form.username(id="username", placeholder="Enter your username", required=True) }}
+
+            <label for="password">Password:</label>
+            {{ form.password(id="password", placeholder="Enter your password", required=True) }}
+
+            {{ form.login(id="login-button", value="Login") }}
+        </form>
+    </section>
+    {% endblock %}
+<div id="flashes">
+    {% for mesg in get_flashed_messages() %}
+      <h4>{{ mesg }}</h4>
+    {% endfor %}
+</div>
+</main>
+<img src="https://i.ibb.co/yQCsjmh/chlogowhite2.png" id="mylogo">
+
+</body>
+</html>
+ 
